@@ -25,7 +25,7 @@ At a minimum you need to have:
 * [vagrant-hostmanager](https://github.com/smdahlen/vagrant-hostmanager#installation)
 * [Node.js](http://nodejs.org/) >= 4.5.0
 * [Gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) >= 3.8.10
-* [Bower](https://github.com/bower/bower/blob/master/README.md#install) >= 1.3.12
+* [Yarn](https://github.com/yarnpkg/yarn/blob/master/README.md#installing-yarn) >= 0.27.5
 
 ## Instructions
 
@@ -34,7 +34,7 @@ Here's how this example project was created:
 1. Create a new project directory: `$ mkdir example.com && cd example.com`
 2. Clone Trellis: `$ git clone --depth=1 git@github.com:roots/trellis.git && rm -rf trellis/.git`
 3. Clone Bedrock: `$ git clone --depth=1 git@github.com:roots/bedrock.git site && rm -rf site/.git`
-4. Clone Sage: `$ git clone --depth=1 --branch sage-8 git@github.com:roots/sage.git site/web/app/themes/sage && rm -rf site/web/app/themes/sage/.git`
+4. Clone Sage: `$ git clone --depth=1 --branch sage-9 git@github.com:roots/sage.git site/web/app/themes/sage && rm -rf site/web/app/themes/sage/.git`
 
 ```shell
 example.com/      # → Root folder for the project
