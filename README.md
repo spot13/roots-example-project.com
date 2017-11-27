@@ -52,26 +52,24 @@ example.com/      # → Root folder for the project
   $ git clone git@github.com:roots/roots-example-project.com.git
   ```
 
-2. **Install external Ansible roles/packages**
+2. **Install composer packages**
   ```shell
-  # @ roots-example-project.com/trellis
-  $ ansible-galaxy install -r requirements.yml
+  # @ roots-example-project.com/site
+  $ composer install
   ```
 
 3. **Install theme components**
   ```shell
   # @ roots-example-project.com/site/web/app/themes/sage
   $ npm install
-  $ bower install
-  $ gulp
+  $ yarn install
   ```
 
-4. **Fire up the server** (be patient, but watch the console––it may prompt for your system password)
-  ```shell
-  # @ roots-example-project.com/trellis
-  $ vagrant up
-  ```
-  _Note: to shut down the server:_ `vagrant halt`
+4. **Create a new host in MAMP and point it to your web directory
+
+ @ roots-example-project.com/site/web
+ 
+ start the web server and mysql
 
 5. **Test the install** at [roots-example-project.dev](http://roots-example-project.dev/)
 
