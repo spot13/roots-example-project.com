@@ -3,14 +3,13 @@
 This repository is an example of how to integrate and use the following projects together:
 
 * [Bedrock](https://github.com/roots/bedrock)
-* [Trellis](https://github.com/roots/trellis)
 * [Sage](https://github.com/roots/sage) (with [Soil](https://github.com/roots/soil))
 
 For more background, see this [blog post](https://roots.io/a-modern-wordpress-example/).
 
 This project is a complete working example that's deployed on a [Digital Ocean](https://roots.io/r/digitalocean/) 512MB droplet.
 
-You can view it at https://roots-example-project.com/.
+You can view it at https://rootsbase.s13.ca/.
 
 ## Requirements
 
@@ -18,13 +17,8 @@ Make sure you have installed all of the dependencies for [Trellis](https://githu
 
 At a minimum you need to have:
 
-* [Ansible](http://docs.ansible.com/ansible/intro_installation.html#latest-releases-via-pip) == 2.0.2.0
-* [Virtualbox](https://www.virtualbox.org/wiki/Downloads) >= 4.3.10
-* [Vagrant](https://www.vagrantup.com/downloads.html) >= 1.8.5
-* [vagrant-bindfs](https://github.com/gael-ian/vagrant-bindfs#installation) >= 0.3.1 (Windows users may skip this)
-* [vagrant-hostmanager](https://github.com/smdahlen/vagrant-hostmanager#installation)
 * [Node.js](http://nodejs.org/) >= 4.5.0
-* [Gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) >= 3.8.10
+* [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx) >= 1.5.1
 * [Yarn](https://github.com/yarnpkg/yarn/blob/master/README.md#installing-yarn) >= 0.27.5
 
 ## Instructions
@@ -32,9 +26,8 @@ At a minimum you need to have:
 Here's how this example project was created:
 
 1. Create a new project directory: `$ mkdir example.com && cd example.com`
-2. Clone Trellis: `$ git clone --depth=1 git@github.com:roots/trellis.git && rm -rf trellis/.git`
-3. Clone Bedrock: `$ git clone --depth=1 git@github.com:roots/bedrock.git site && rm -rf site/.git`
-4. Clone Sage: `$ git clone --depth=1 --branch sage-9 git@github.com:roots/sage.git site/web/app/themes/sage && rm -rf site/web/app/themes/sage/.git`
+2. Clone Bedrock: `$ git clone --depth=1 git@github.com:roots/bedrock.git site && rm -rf site/.git`
+3. Clone Sage: `$ git clone --depth=1 --branch sage-9 git@github.com:roots/sage.git site/web/app/themes/sage && rm -rf site/web/app/themes/sage/.git`
 
 ```shell
 example.com/      # → Root folder for the project
@@ -47,66 +40,66 @@ example.com/      # → Root folder for the project
 
 ## Local development setup
 
-1. **Clone this repository** into a working directory (e.g., `~/Sites`)
+1. **Clone this repository** into a working directory (e.g., `/Applications/MAMP/htdocs`)
   ```shell
-  $ git clone git@github.com:roots/roots-example-project.com.git
+  $ git clone git@github.com:spot13/rootsbase.git
   ```
 
 2. **Install composer packages**
   ```shell
-  # @ roots-example-project.com/site
+  # @ rootsbase.com/site
   $ composer install
   ```
 
 3. **Install theme components**
   ```shell
-  # @ roots-example-project.com/site/web/app/themes/sage
-  $ npm install
+  # @ rootsbase/site/web/app/themes/sage
+  $ composer install
   $ yarn install
   ```
 
 4. **Create a new host in MAMP and point it to your web directory
 
- @ roots-example-project.com/site/web
+ @ rootsbase.com/site/web
  
  start the web server and mysql
 
-5. **Test the install** at [roots-example-project.dev](http://roots-example-project.dev/)
+5. **Test the install** at [rootsbase.dev](http://rootsbase.dev/)
 
 ## Remote server setup (staging/production)
 
 ### Provision server:
 ```shell
-# @ roots-example-project.com/trellis
+# @ rootsbase.com/trellis
 $ ansible-playbook server.yml -e env=<environment>
 ```
 
 ### Deploy:
 ```shell
-# @ roots-example-project.com/trellis
-./deploy.sh <environment> roots-example-project.com
+# @ rootsbase.com/trellis
+./deploy.sh <environment> rootsbase.com
 
 # OR
-ansible-playbook deploy.yml -e "site=roots-example-project.com env=<environment>"
+ansible-playbook deploy.yml -e "site=rootsbase.com env=<environment>"
 ```
 
 **To rollback a deploy:**
 ```shell
-ansible-playbook rollback.yml -e "site=roots-example-project.com env=<environment>"
+ansible-playbook rollback.yml -e "site=rootsbase.com env=<environment>"
 ```
 
 ## Theme development
 
-In **development**, run gulp in _watch_ mode for live updates at [localhost:3000](http://localhost:3000). **Important**: always use the [roots-example-project.dev](http://roots-example-project.dev/wp/wp-admin/) URL to access the WordPress admin.
+In **development**, run gulp in _watch_ mode for live updates at [localhost:3000](http://localhost:3000). **Important**: always use the [rootsbase.dev](http://rootsbase.dev/wp/wp-admin/) URL to access the WordPress admin.
 ```shell
-# @ roots-example-project.com/site/web/app/themes/sage
+# @ rootsbase.com/site/web/app/themes/sage
 $ gulp watch
 ```
 
 **Production** assets (minified CSS, JavaScript, images, fonts, etc.) need to be compiled. Run gulp with the `--production` flag. The resulting files will be saved in `themes/sage/dist/`. Never edit files in the `dist` directory.
 
 ```shell
-# @ roots-example-project.com/site/web/app/themes/sage
+# @ rootsbase.com/site/web/app/themes/sage
 $ gulp --production
 ```
 
