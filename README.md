@@ -9,11 +9,11 @@ For more background, see this [blog post](https://roots.io/a-modern-wordpress-ex
 
 This project is a complete working example that's deployed on a [Digital Ocean](https://roots.io/r/digitalocean/) 512MB droplet.
 
-You can view it at https://rootsbase.s13.ca/.
+You can view it at https://rootsbase.s13.io/.
 
 ## Requirements
 
-Make sure you have installed all of the dependencies for [Trellis](https://github.com/roots/trellis#requirements), [Bedrock](https://github.com/roots/bedrock#requirements) and [Sage](https://github.com/roots/sage#requirements) before moving on.
+Make sure you have installed all of the dependencies for [Bedrock](https://github.com/roots/bedrock#requirements) and [Sage](https://github.com/roots/sage#requirements) before moving on.
 
 At a minimum you need to have:
 
@@ -28,6 +28,14 @@ Here's how this example project was created:
 1. Create a new project directory: `$ mkdir example.com && cd example.com`
 2. Clone Bedrock: `$ git clone --depth=1 git@github.com:roots/bedrock.git site && rm -rf site/.git`
 3. Clone Sage: `$ git clone --depth=1 --branch sage-9 git@github.com:roots/sage.git site/web/app/themes/sage && rm -rf site/web/app/themes/sage/.git`
+
+Here are the steps to get started on a Ubuntu / Debian installation:
+
+1. 'apt-get install git'
+2. 'apt-get install node'
+3. 'apt-get install npm'
+4. 'npm install composer'
+5. 'npm install yarn'
 
 ```shell
 example.com/      # → Root folder for the project
@@ -47,8 +55,13 @@ example.com/      # → Root folder for the project
 
 2. **Install composer packages**
   ```shell
+<<<<<<< Local Changes
+  # @ roots-example-project.com/site
+  $ composer install -o --prefer-dist --no-interaction
+=======
   # @ rootsbase.com/site
   $ composer install
+>>>>>>> External Changes
   ```
 
 3. **Install theme components**
