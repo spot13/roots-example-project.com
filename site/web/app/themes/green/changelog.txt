@@ -1,0 +1,7 @@
+Version 1.1
+	- Fix child theme
+	- Fix import images and icons
+
+Version 1.0
+	- Release
+
